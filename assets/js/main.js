@@ -79,6 +79,8 @@ jQuery("#toggle-search").click(function () {
     if (isEven(count) === false) {
         //jQuery("#nav-search").css({"display":"block"});
         jQuery("#nav-search").slideDown();
+        jQuery("#nav-search-button").slideDown();
+        jQuery("#search-bar").slideDown();
         jQuery("#toggle-search").attr("src", "assets/images/close.png");
 
     }
@@ -86,6 +88,9 @@ jQuery("#toggle-search").click(function () {
     else if (isEven(count) === true) {
         //jQuery("#nav-search").css({"display":"none"});
         jQuery("#nav-search").slideUp();
+        jQuery("#nav-search-button").slideUp();
+        jQuery("#search-bar").slideUp();
+
 
         jQuery("#toggle-search").attr("src", "assets/images/search-icon.png");
     }
