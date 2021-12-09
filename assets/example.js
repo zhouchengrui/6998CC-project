@@ -2,7 +2,7 @@
 // 
 function searchPhoto() {
     //clear the images area
-    var element=document.getElementById("photoArea");
+    var element=document.getElementById("newsArea");
     element.innerHTML="";
 
     //initialize apigclient and related parameters
@@ -11,11 +11,11 @@ function searchPhoto() {
     });
     var params = {
         'q': document.getElementById("searchContent").value,
-        "x-api-key":"tsTl8L4WXu0UluiBNdcn4PayXGOObY45xoStL1kd"
+        "x-api-key":"bc2kD6kNp11BR1Ldi5NDZ6q3eHKkvMwZ9cy8t0wG"
     };
     var additionalParams = {
         headers: {
-            "x-api-key":"tsTl8L4WXu0UluiBNdcn4PayXGOObY45xoStL1kd"
+            "x-api-key":"bc2kD6kNp11BR1Ldi5NDZ6q3eHKkvMwZ9cy8t0wG"
         }
     };
 
