@@ -97,6 +97,7 @@ function searchNews() {
     //clear the images area
     var element=document.getElementById("newsArea");
     element.innerHTML="";
+    console.log("1122233333")
 
     //initialize apigclient and related parameters
     var apigClient = apigClientFactory.newClient({
