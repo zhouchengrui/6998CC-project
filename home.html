@@ -146,9 +146,7 @@
                     alert("Oops, no news found based on the given labels.")
                 }
                 console.log(response)
-                // for (let i = 0; i < response.news.length; i++){
                 document.getElementById("getNewsContianer").innerHTML += response.news[0];
-                // }
             }).catch(function (result) {
                 console.log(result);
             });

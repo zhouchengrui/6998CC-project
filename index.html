@@ -153,59 +153,8 @@
                 <div class="col-md-12 mb-4">
                     <div class="row">
                         <div class="col-md-12 col-lg-12 light-bg cus-pd cus-arrow-left">
-                            <p><small>march 27, 2020</small></p>
-                            <h3>Trendy Summer
-                                Fashion</h3>
-                            <p>
-                                To take a trivial example, which of us ever undertakes laborious physical exercise,
-                                except to obtain some advantage from it? But who has any right to find fault with a man
-                                who chooses...
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12 mb-4">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-12 light-bg cus-pd cus-arrow-left">
-                            <p><small>march 27, 2020</small></p>
-                            <h3>Trendy Summer
-                                Fashion</h3>
-                            <p>
-                                To take a trivial example, which of us ever undertakes laborious physical exercise,
-                                except to obtain some advantage from it? But who has any right to find fault with a man
-                                who chooses...
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12 mb-4">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-12 light-bg cus-pd cus-arrow-left">
-                            <p><small>march 27, 2020</small></p>
-                            <h3>Trendy Summer
-                                Fashion</h3>
-                            <p>
-                                To take a trivial example, which of us ever undertakes laborious physical exercise,
-                                except to obtain some advantage from it? But who has any right to find fault with a man
-                                who chooses...
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12 mb-4">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-12 light-bg cus-pd cus-arrow-left">
-                            <p><small>march 27, 2020</small></p>
-                            <h3>Trendy Summer
-                                Fashion</h3>
-                            <p>
-                                To take a trivial example, which of us ever undertakes laborious physical exercise,
-                                except to obtain some advantage from it? But who has any right to find fault with a man
-                                who chooses...
-                            </p>
+                            <h2 id="title"></h2>
+                            <p id="content"></p>
                         </div>
                     </div>
                 </div>
@@ -253,6 +202,29 @@
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/jquery.yu2fvl.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        var apigClient = apigClientFactory.newClient({
+            apiKey: 'apiKEY'
+        });
+        var additionalParams = {
+            headers: {
+            }
+        };
+
+        apigClient.dailyGet(params, {}, additionalParams).then(function (result) {
+            console.log(result)
+            response = result.data
+            if (response.length == 0) {
+                alert("Oops, no news found based on the given labels.")
+            }
+            console.log(response)
+            // for (let i = 0; i < response.news.length; i++){
+            // document.getElementById("getNewsContianer").innerHTML += response.news[0];
+            // }
+        }).catch(function (result) {
+            console.log(result);
+        });
+    </script>
 
 </body>
 
