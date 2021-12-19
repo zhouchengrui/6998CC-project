@@ -34,7 +34,9 @@
 
             <div id="search-bar">
                 <input type="text" id="nav-search" class="nav-search mx-auto" name="" class="form-control">
-                <button id="nav-search-button"  name="" onClick="searchNews()">Search</button>
+                <button id="nav-search-button" name="" onClick="searchNews()" href="search.html">
+                    <a href="search.html">Search</a>
+                </button>
             </div>
 
             <div class="ml-0 mr-0 pb-1">
@@ -95,45 +97,7 @@
                                     class="far fa-comments"></i></a></div>
                     </div>
 
-                    <h2 style="margin-top: 100px;">Lorem ipsum dolor sit amet, consectetur.</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et
-                        dolore magna aliqua. Idque Caesaris facere voluntate liceret: sese habere. Magna pars studiorum,
-                        prodita quaerimus. Magna pars studiorum, prodita quaerimus. Fabio vel iudice vincam, sunt in
-                        culpa qui officia. Vivamus sagittis lacus vel augue laoreet rutrum faucibus.</p>
-
-                    <div class="media my-5">
-                        <div class="q-box d-flex align-items-center justify-content-center"><img
-                                src="assets/images/quote.png" alt=""></div>
-                        <div class="bbg media-body">
-                            <h5 class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
-                                incidunt ut labore et dolore magna aliqua.</h5>
-
-                        </div>
-                    </div>
-
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et
-                        dolore magna aliqua. Idque Caesaris facere voluntate liceret: sese habere. Magna pars studiorum,
-                        prodita quaerimus. Magna pars studiorum, prodita quaerimus. Fabio vel iudice vincam, sunt in
-                        culpa qui officia. Vivamus sagittis lacus vel augue laoreet rutrum faucibus.blandit praesent
-                        luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta
-                        nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.
-                        Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.
-                        Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est
-                        etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam
-                        littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per
-                        seacula quarta decima et quinta decima. </p>
-
-                    <p> Eodem modo typi, qui nunc nobis videntur parum Nam liber tempor cum soluta nobis eleifend option
-                        congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent
-                        claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes
-                        demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus
-                        dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica,
-                        quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta
-                        decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes
-                        in futurum.
-                    </p>
-
+                    <h2 style="margin-top: 100px;" id="getNewsContianer"></h2>
 
             </div>
         </div>
@@ -157,6 +121,34 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/article.js"></script>
+    <script>
+            console.log(window.location.href);
+            var id = window.location.href.substring(51,64);
+            console.log(id);
+            var apigClient = apigClientFactory.newClient({
+                apiKey: 'apiKEY'
+            });
+            var params = {
+                'q': id,
+            };
+            var additionalParams = {
+                headers: {
+                }
+            };
+
+            apigClient.searchNewsFromIdGet(params, {}, additionalParams).then(function (result) {
+                response = result.data
+                if (response.length == 0) {
+                    alert("Oops, no news found based on the given labels.")
+                }
+                console.log(response)
+                // for (let i = 0; i < response.news.length; i++){
+                //     document.getElementById("newsContainer").innerHTML += "<h2 onclick='goToNews(" + response.news[0][1] + ")'>" + response.news[i][0].substring(0, Math.min(response.news[i][0].length, 100)) + "..." + "</h2>" + "<HR style=\"FILTER: alpha(opacity=100,finishopacity=0,style=1)\" width=\"80%\" color=#987cb9 SIZE=3>";
+                // }
+            }).catch(function (result) {
+                console.log(result);
+            });
+    </script>
 
 
 
