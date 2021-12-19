@@ -95,26 +95,24 @@ jQuery("#toggle-search").click(function () {
 
 function searchNews() {
     //clear the images area
-    var element=document.getElementById("newsArea");
-    element.innerHTML="";
-    console.log("1122233333")
+    var element=document.getElementById("nav-search");
+    console.log(element.value);
 
     //initialize apigclient and related parameters
     var apigClient = apigClientFactory.newClient({
         apiKey: 'apiKEY'
     });
     var params = {
-        'q': document.getElementById("nav-search").value,
-        "x-api-key":"tsTl8L4WXu0UluiBNdcn4PayXGOObY45xoStL1kd"
+        'q': element.value,
     };
     var additionalParams = {
         headers: {
-            "x-api-key":"tsTl8L4WXu0UluiBNdcn4PayXGOObY45xoStL1kd"
         }
     };
 
     apigClient.searchGet(params, {}, additionalParams).then(function (result) {
         response = result.data
+        console.log(response)
         if (response.length == 0) {
             alert("Oops, no news found based on the given labels.")
         }
