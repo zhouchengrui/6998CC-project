@@ -40,6 +40,7 @@ function signUpButton() {
         }
         cognitoUser = result.user;
         console.log("username is " +  cognitoUser.getUsername());
+        sessionStorage.setItem("username", document.getElementById("Uname").value);
         // document.getElementById("titleheader").innerHTML = "Check your email verification code"
 
         // var registerfields_list = document.getElementById("registerfields");
