@@ -53,7 +53,7 @@ apigClientFactory.newClient = function (config) {
 
     
     // extract endpoint and path from url
-    var invokeUrl = 'https://0uz520jik6.execute-api.us-west-2.amazonaws.com/v3';
+    var invokeUrl = 'https://0uz520jik6.execute-api.us-west-2.amazonaws.com/v4';
     var endpoint = /(^https?:\/\/[^\/]+)/g.exec(invokeUrl)[1];
     var pathComponent = invokeUrl.substring(endpoint.length);
 
@@ -194,13 +194,13 @@ apigClientFactory.newClient = function (config) {
     apigClient.searchNewsFromIdGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
-        apiGateway.core.utils.assertParametersDefined(params, ['q'], ['body']);
+        apiGateway.core.utils.assertParametersDefined(params, ['username', 'q'], ['body']);
         
         var searchNewsFromIdGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/search_news_from_id').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['q']),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['username', 'q']),
             body: body
         };
         
