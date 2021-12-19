@@ -15,23 +15,18 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/79b4059269.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
-    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
-    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
-    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
-    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
-    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
-    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
-    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
-    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
-    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
-    <script type="text/javascript" src="../assets/js/apiGateway-js-sdk/apigClient"></script>
-    <script type="text/javascript" src="apigClient.js"></script>
+    <script src="assets/js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/apigClient.js"></script>
     <script type="text/javascript" src="assets/js/index.js"></script>
     <title>News</title>
 </head>
@@ -206,13 +201,14 @@
         var apigClient = apigClientFactory.newClient({
             apiKey: 'apiKEY'
         });
+
         var additionalParams = {
             headers: {
             }
         };
-
-        apigClient.dailyGet(params, {}, additionalParams).then(function (result) {
-            console.log(result)
+        
+        apigClient.dailyGet({}, {}, additionalParams).then(function (result) {
+            // console.log(result.data['body'].length)
             response = result.data
             if (response.length == 0) {
                 alert("Oops, no news found based on the given labels.")

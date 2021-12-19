@@ -87,12 +87,10 @@ function searchNews() {
 
     apigClient.searchGet(params, {}, additionalParams).then(function (result) {
         response = result.data
-        console.log(response.news[0][0])
-        console.log(response.news[0][1])
+        console.log(response)
         if (response.length == 0) {
             alert("Oops, no news found based on the given labels.")
         }
-        console.log(response.news.length)
         for (let i = 0; i < response.news.length; i++){
             document.getElementById("newsContainer").innerHTML += "<h2 onclick='goToNews(" + response.news[i][1] + ")'>" + response.news[i][0].substring(0, Math.min(response.news[i][0].length, 100)) + "..." + "</h2>" + "<HR style=\"FILTER: alpha(opacity=100,finishopacity=0,style=1)\" width=\"80%\" color=#987cb9 SIZE=3>";
         }
