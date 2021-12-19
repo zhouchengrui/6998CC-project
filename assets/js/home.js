@@ -98,3 +98,7 @@ function getNewsById(){
     var id = window.location.href().substring(54,64);
     console.log(id);
 }
+
+function homepage() {
+    window.location.assign("index.html");
+}

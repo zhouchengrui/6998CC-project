@@ -105,7 +105,7 @@
 
 
     <div class="container-fluid jumbotron-fluid stay mt-5 pt-5 pb-5">
-        <button type="button" class="btn btn-primary active" data-bs-toggle="button" autocomplete="off" aria-pressed="true">Logout</button>
+        <button type="button" class="btn btn-primary active" data-bs-toggle="button" autocomplete="off" aria-pressed="true" onclick="homepage()">Homepage</button>
     </div>
 
     <footer class="container-fluid pt-5">
@@ -148,6 +148,7 @@
                 console.log(response)
                 document.getElementById("getNewsContianer").innerHTML += response.news[0];
             }).catch(function (result) {
+                alert("You need to logged in before checking detailed news")
                 console.log(result);
             });
     </script>

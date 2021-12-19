@@ -146,12 +146,12 @@
 
 
             <div class="row vr-gallery">
-                <div class="col-md-12 mb-4">
-                    <div class="row">
+                <div class="col-md-12 mb-4" id="newsContent">
+                    <!-- <div class="row">
                         <div class="col-md-12 col-lg-12 light-bg cus-pd cus-arrow-left">
                             <p id="newsContent"></p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="col-md-4 pl-4 mb-4">
@@ -215,7 +215,7 @@
             }
             console.log(response)
             for (let i = 0; i < response.news.length; i++){
-                document.getElementById("newsContent").innerHTML += "<div className=" + "row" + ">" + "<div className=" + "col-md-12 col-lg-12 light-bg cus-pd cus-arrow-left" + ">" + "<h2 onclick='goToNews(" + response.news[i][1] + ")'>" + response.news[i][0].substring(0, 100) + "..." + "</h2>" + "</div>" + "</div>" + "<br>" + "</br>";
+                document.getElementById("newsContent").innerHTML += "<div class=" + '"row"' + ">" + "<div class=" + '"col-md-12 col-lg-12 light-bg cus-pd cus-arrow-left"' + ">" + "<h2 onclick='goToNews(" + response.news[i][1] + ")'>" + response.news[i][0].substring(0, 100) + "..." + "</h2>" + "</div>" + "</div>" + "<br>" + "</br>";
             }
         }).catch(function (result) {
             console.log(result);
