@@ -32,6 +32,7 @@
     <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
     <script type="text/javascript" src="../assets/js/apiGateway-js-sdk/apigClient"></script>
     <script type="text/javascript" src="apigClient.js"></script>
+    <script type="text/javascript" src="assets/js/index.js"></script>
     <title>News</title>
 </head>
 
@@ -57,8 +58,10 @@
                             <li class="nav-item col-12">
 <!--                                <button type="button" style="margin-left: 30px" class="btn btn-primary btn-sm">Login</button>-->
 <!--                                <button type="button" class="btn btn-secondary btn-sm">Sign up</button>-->
-                                <a href="https://zll1998.auth.us-west-2.amazoncognito.com/login?client_id=40asdmica7rjjq81fmv28knemd&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+profile&redirect_uri=https://www.testsignin.com" class="btn btn-primary active " role="button" data-bs-toggle="button" aria-pressed="true" style="margin-left: 200px">       Login       </a>
-                                <a href="https://zll1998.auth.us-west-2.amazoncognito.com/signup?client_id=40asdmica7rjjq81fmv28knemd&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+profile&redirect_uri=https://www.testsignin.com" class="btn btn-primary active " role="button" data-bs-toggle="button">       Sign Up       </a>
+                                <!-- <a href="https://zll1998.auth.us-west-2.amazoncognito.com/login?client_id=40asdmica7rjjq81fmv28knemd&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+profile&redirect_uri=https://www.testsignin.com" class="btn btn-primary active " role="button" data-bs-toggle="button" aria-pressed="true" style="margin-left: 200px">       Login       </a>
+                                <a href="https://zll1998.auth.us-west-2.amazoncognito.com/signup?client_id=40asdmica7rjjq81fmv28knemd&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+profile&redirect_uri=https://www.testsignin.com" class="btn btn-primary active " role="button" data-bs-toggle="button">       Sign Up       </a> -->
+                                <button type="button" style="margin-left: 30px" class="btn btn-primary btn-sm" onclick="login()">Login</button>
+                                <button type="button" class="btn btn-secondary btn-sm" onclick="signup()">Sign up</button>
                             </li>
                         </ul>
                     </div>

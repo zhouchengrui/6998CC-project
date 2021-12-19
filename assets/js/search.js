@@ -69,6 +69,7 @@ jQuery(".link-img").click(function () {
 
 function searchNews() {
     //clear the images area
+    console.log(sessionStorage.getItem("username"));
     var element=document.getElementById("nav-search");
     console.log(element.value);
 
@@ -93,7 +94,7 @@ function searchNews() {
         }
         console.log(response.news.length)
         for (let i = 0; i < response.news.length; i++){
-            document.getElementById("newsContainer").innerHTML += "<h2 onclick='goToNews(" + response.news[0][1] + ")'>" + response.news[i][0].substring(0, Math.min(response.news[i][0].length, 100)) + "..." + "</h2>" + "<HR style=\"FILTER: alpha(opacity=100,finishopacity=0,style=1)\" width=\"80%\" color=#987cb9 SIZE=3>";
+            document.getElementById("newsContainer").innerHTML += "<h2 onclick='goToNews(" + response.news[i][1] + ")'>" + response.news[i][0].substring(0, Math.min(response.news[i][0].length, 100)) + "..." + "</h2>" + "<HR style=\"FILTER: alpha(opacity=100,finishopacity=0,style=1)\" width=\"80%\" color=#987cb9 SIZE=3>";
         }
         // for (let i = 0; i < response.length; i++) {
         //     var news_url = response[i];

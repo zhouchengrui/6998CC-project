@@ -123,13 +123,17 @@
     <script src="assets/js/article.js"></script>
     <script>
             console.log(window.location.href);
-            var id = window.location.href.substring(51,64);
+            var queryString = window.location.search;
+            var urlParams = new URLSearchParams(queryString);
+            id = urlParams.get("id");
+            // var id = window.location.href.substring(51,64);
             console.log(id);
             var apigClient = apigClientFactory.newClient({
                 apiKey: 'apiKEY'
             });
             var params = {
                 'q': id,
+                'username': sessionStorage.getItem("username"),
             };
             var additionalParams = {
                 headers: {

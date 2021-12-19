@@ -25,7 +25,6 @@ function searchNews() {
             alert("Oops, no result found.")
         }
 
-        console.log
         //generate news item and place it in front end
         for (let i = 0; i < response.length; i++) {
             var news_url = response[i];
@@ -153,3 +152,10 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 
+function login() {
+    window.location.assign("login.html");
+}
+
+function signup() {
+    window.location.assign("signup.html");
+}

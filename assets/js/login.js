@@ -1,4 +1,5 @@
 function signInButton() {
+    console.log(sessionStorage.getItem("username"));
     var authenticationData = {
         Username : document.getElementById("Uname").value,
         Password : document.getElementById("Pass").value,
@@ -27,6 +28,7 @@ function signInButton() {
             var accessToken = result.getAccessToken().getJwtToken();
             console.log(accessToken);
             sessionStorage.setItem("username", document.getElementById("Uname").value);
+            window.location.assign("index.html");
         },
 
         onFailure: function (err) {
