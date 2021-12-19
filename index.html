@@ -148,8 +148,7 @@
                 <div class="col-md-12 mb-4">
                     <div class="row">
                         <div class="col-md-12 col-lg-12 light-bg cus-pd cus-arrow-left">
-                            <h2 id="title"></h2>
-                            <p id="content"></p>
+                            <p id="newsContent"></p>
                         </div>
                     </div>
                 </div>
@@ -206,7 +205,7 @@
             headers: {
             }
         };
-        
+
         apigClient.dailyGet({}, {}, additionalParams).then(function (result) {
             // console.log(result.data['body'].length)
             response = result.data
@@ -214,9 +213,9 @@
                 alert("Oops, no news found based on the given labels.")
             }
             console.log(response)
-            // for (let i = 0; i < response.news.length; i++){
-            // document.getElementById("getNewsContianer").innerHTML += response.news[0];
-            // }
+            for (let i = 0; i < response.news.length; i++){
+                document.getElementById("newsContent").innerHTML += "<div className=" + "row" + ">" + "<div className=" + "col-md-12 col-lg-12 light-bg cus-pd cus-arrow-left" + ">" + "<h2 onclick='goToNews(" + response.news[i][1] + ")'>" + response.news[i][0].substring(0, 100) + "..." + "</h2>" + "</div>" + "</div>" + "<br>" + "</br>";
+            }
         }).catch(function (result) {
             console.log(result);
         });
