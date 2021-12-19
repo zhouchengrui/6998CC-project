@@ -1,0 +1,38 @@
+<!DOCTYPE html>    
+<html>    
+<head>    
+    <title>Signup Form</title>    
+    <link rel="stylesheet" type="text/css" href="assets/css/login.css"/> 
+    <link rel="stylesheet" type="text/css" href="assets/css/login.css"/> 
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+    <!-- <script src="assets/js/amazon-cognito-identity.min.js"></script> -->
+    <!-- <script src="assets/js/amazon-cognito-auth.min.js"></script> -->
+    <script src="assets/js/jquery-1.12.0.min.js"></script>
+    <script src="node_modules/amazon-cognito-identity-js/dist/amazon-cognito-identity.min.js"></script>
+    <!-- <script src="node_modules/amazon-cognito-auth-js/dist/amazon-cognito-auth.min.js"></script> -->
+    <script src="assets/js/signup.js"></script>
+
+</head>    
+<body>    
+    <h2>Signup Page</h2><br>    
+    <div class="login">    
+    <label><b>User Name     
+    </b>    
+    </label> 
+    <input type="text" name="Uname" id="Uname" placeholder="Username" required autofocus>    
+    <br><br>    
+    <label><b>Email            
+    </b>    
+    </label> 
+    <input type="email" name="Email" id="Email" placeholder="Email" required>    
+    <br><br> 
+    <label><b>Password     
+    </b>
+    </label>    
+    <input type="Password" name="Pass" id="Pass" placeholder="Password" required>    
+    <br><br>    
+    <button onclick="signUpButton()">Sign Up Here</button>       
+    <br><br>
+</div>    
+</body>    
+</html>  

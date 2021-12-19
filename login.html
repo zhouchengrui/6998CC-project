@@ -3,10 +3,12 @@
 <head>    
     <title>Login Form</title>    
     <link rel="stylesheet" type="text/css" href="assets/css/login.css"/> 
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1046.0.min.js"></script>
-    <script src="assets/js/amazon-cognito-identity.min.js"></script>
-    <script src="assets/js/amazon-cognito-auth.min.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+    <!-- <script src="assets/js/amazon-cognito-identity.min.js"></script> -->
+    <!-- <script src="assets/js/amazon-cognito-auth.min.js"></script> -->
     <script src="assets/js/jquery-1.12.0.min.js"></script>
+    <script src="node_modules/amazon-cognito-identity-js/dist/amazon-cognito-identity.min.js"></script>
+    <!-- <script src="node_modules/amazon-cognito-auth-js/dist/amazon-cognito-auth.min.js"></script> -->
     <script src="assets/js/login.js"></script>
 
 </head>    
@@ -23,7 +25,7 @@
     </label>    
     <input type="Password" name="Pass" id="Pass" placeholder="Password" required>    
     <br><br>    
-    <button nClick="signInButton">Log In Here</button>     
+    <button onclick="signInButton()">Log In Here</button>     
     <br><br>
 </div>    
 </body>    
