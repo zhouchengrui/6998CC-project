@@ -53,7 +53,7 @@ apigClientFactory.newClient = function (config) {
 
     
     // extract endpoint and path from url
-    var invokeUrl = 'https://0uz520jik6.execute-api.us-west-2.amazonaws.com/v5';
+    var invokeUrl = 'https://0uz520jik6.execute-api.us-west-2.amazonaws.com/history';
     var endpoint = /(^https?:\/\/[^\/]+)/g.exec(invokeUrl)[1];
     var pathComponent = invokeUrl.substring(endpoint.length);
 
@@ -122,12 +122,12 @@ apigClientFactory.newClient = function (config) {
     apigClient.historyGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
-        apiGateway.core.utils.assertParametersDefined(params, ['x-api-key', 'q'], ['body']);
+        apiGateway.core.utils.assertParametersDefined(params, ['q'], ['body']);
         
         var historyGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/history').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
-            headers: apiGateway.core.utils.parseParametersToObject(params, ['x-api-key', ]),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, ['q']),
             body: body
         };

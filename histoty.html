@@ -9,6 +9,19 @@
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script type="text/javascript" src="./assets/js/sdk/lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="./assets/js/sdk/apigClient.js"></script>
+    <script type="text/javascript" src="assets/js/search.js"></script>
+    <script type="text/javascript" src="assets/js/index.js"></script>
 
 
     <title>Shahala</title>
@@ -62,11 +75,12 @@
 <div class="container-fluid ar-content">
     <div class="container">
         <div class="col-lg-12 pr-5" id="searchHistory" onClick="newsHistroy()">
-
         </div>
         <div class="row">
-            <div class="col-lg-12 pr-5" id="searchHistory" onClick="searchNews()">
-                <h2 style="margin-top: 150px;">Lorem ipsum dolor sit amet, consectetur.</h2>
+            <div class="col-lg-12 pr-5" onClick="searchNews()">
+                <h2 style="margin-top: 150px;" id="personalHistory">
+
+                </h2>
             </div>
         </div>
     </div>
@@ -90,6 +104,43 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/article.js"></script>
+    <script>
+        //clear the images area
+        console.log(sessionStorage.getItem("username"));
+        var element=document.getElementById("nav-search");
+        console.log(element.value);
+
+        //initialize apigclient and related parameters
+        var apigClient = apigClientFactory.newClient({
+            apiKey: 'apiKEY'
+        });
+        var params = {
+            'q': sessionStorage.getItem("username"),
+        };
+        var additionalParams = {
+            headers: {
+            }
+        };
+
+        apigClient.historyGet(params, {}, additionalParams).then(function (result) {
+            response = result.data
+            console.log(response)
+            if (response.length == 0) {
+                alert("Oops, no news found based on the given labels.")
+            }
+            var json = JSON.stringify(response)
+            var list = json.split(",")
+            console.log("list:" + list)
+            document.getElementById("personalHistory").innerHTML += "<h1>" + "Your searching history will be shown there, including tags and search times:" + "</h1>" + "<br></br>";
+            for (let i = 0; i < list.length; i++){
+                if(i == 0) document.getElementById("personalHistory").innerHTML += "<h2>" +list[i].substring(1, list[i].length) + "</h2>";
+                else if (i == list.length - 1) document.getElementById("personalHistory").innerHTML += "<h2>" +list[i].substring(0, list[i].length - 1) + "</h2>";
+                else document.getElementById("personalHistory").innerHTML += "<h2>" +list[i] + "</h2>";
+            }
+        }).catch(function (result) {
+            console.log(result);
+        });
+    </script>
 
 
 
