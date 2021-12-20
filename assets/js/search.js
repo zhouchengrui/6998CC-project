@@ -108,3 +108,7 @@ function searchNews() {
     });
 }
 
+function goToNews(id) {
+    window.location.assign("home.html" + "?id=" + id);
+}
+
