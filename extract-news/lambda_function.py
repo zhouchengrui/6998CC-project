@@ -10,10 +10,10 @@ dynamodb = boto3.resource('dynamodb')
 configuration = aylien_news_api.Configuration()
 
 # Configure API key authorization: app_id
-configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = '84865697'
+configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = ''
 
 # Configure API key authorization: app_key
-configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = '84022274d19c8666b34a69c7630d1ff1'
+configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = ''
 
 # Defining host is optional and default to https://api.aylien.com/news
 configuration.host = "https://api.aylien.com/news"
