@@ -11,11 +11,11 @@ function searchNews() {
     });
     var params = {
         'q': document.getElementById("news-search").value,
-        "x-api-key":"bc2kD6kNp11BR1Ldi5NDZ6q3eHKkvMwZ9cy8t0wG"
+        "x-api-key":""
     };
     var additionalParams = {
         headers: {
-            "x-api-key":"bc2kD6kNp11BR1Ldi5NDZ6q3eHKkvMwZ9cy8t0wG"
+            "x-api-key":""
         }
     };
 
@@ -63,7 +63,7 @@ function uploadPhoto() {
         headers: {
             'Content-Type': file.type,
             'x-amz-meta-customLabels': label,
-            'x-api-key': 'bc2kD6kNp11BR1Ldi5NDZ6q3eHKkvMwZ9cy8t0wG'
+            'x-api-key': ''
         }
     }
 
