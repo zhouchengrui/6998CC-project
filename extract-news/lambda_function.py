@@ -20,7 +20,7 @@ configuration.host = "https://api.aylien.com/news"
 # Create an instance of the API class
 api_instance = aylien_news_api.DefaultApi(aylien_news_api.ApiClient(configuration))
 
-subscription_key = "1adef2341407443d9c916d929b20e00b"
+subscription_key = ""
 search_url = "https://api.bing.microsoft.com/v7.0/news/trendingtopics"
 
 es_endpoint = "https://search-news-db-newsrec-iumuowftmdt3zywn2i6x2ixf6q.us-west-2.es.amazonaws.com/news/_bulk"
