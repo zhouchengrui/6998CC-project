@@ -82,7 +82,7 @@ def extract_news_contents(names):
                     "insert_time": str(x),
                 }
                 payload={
-                    'key': '4ada1634e4a5eab15f176e6a4cae50c9',
+                    'key': '',
                     'txt': s.body,
                     'model': 'IAB_2.0_en',  # like IAB_2.0_en
                 }
