@@ -33,7 +33,7 @@ def load_items(data):
         table.put_item(Item=item)
 
 def extract_trending_topics():
-    subscription_key = "1adef2341407443d9c916d929b20e00b"
+    subscription_key = ""
     search_url = "https://api.bing.microsoft.com/v7.0/news/trendingtopics"
     headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
     params  = {"textDecorations": True, "textFormat": "HTML", "count": 100}
