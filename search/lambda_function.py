@@ -15,8 +15,8 @@ service = 'es'
 credentials = boto3.Session().get_credentials()
 awsauth = AWS4Auth(credentials.access_key, credentials.secret_key, region, service, session_token=credentials.token)
 
-aws_access_key_id = 'AKIA23OTJIU2UTDYVMWD'
-aws_secret_access_key = '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'
+aws_access_key_id = ''
+aws_secret_access_key = ''
 
 dynamodb = boto3.resource('dynamodb')
 
